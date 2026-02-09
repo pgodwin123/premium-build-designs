@@ -1,18 +1,16 @@
-import HeroSection from "@/components/home/HeroSection";
-import ServicesSection from "@/components/home/ServicesSection";
-import TrustBar from "@/components/home/TrustBar";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
-import ProjectsPreview from "@/components/home/ProjectsPreview";
+import SplitHero from "@/components/home/SplitHero";
+import StatsBar from "@/components/home/StatsBar";
+import AlternatingServices from "@/components/home/AlternatingServices";
+import TestimonialCarousel from "@/components/home/TestimonialCarousel";
 import CTABanner from "@/components/home/CTABanner";
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <TrustBar />
-      <ServicesSection />
-      <ProjectsPreview />
-      <TestimonialsSection />
+      <SplitHero />
+      <StatsBar />
+      <AlternatingServices />
+      <TestimonialCarousel />
       <CTABanner />
     </>
   );

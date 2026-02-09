@@ -36,14 +36,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company Info - [PLACEHOLDER] Update company details */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-5">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">OD</span>
-              </div>
-              <div>
-                <span className="text-foreground font-bold text-lg">OD Contractors</span>
-                <span className="text-muted-foreground text-xs block -mt-1">Building Excellence</span>
-              </div>
+            <Link to="/" className="block mb-5">
+              <span className="text-foreground font-bold text-xl">OD Contractors</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
               {/* [PLACEHOLDER] Update company description */}

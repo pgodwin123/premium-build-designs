@@ -44,14 +44,10 @@ export default function Header() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo - [PLACEHOLDER] Update company name */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">OD</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-foreground font-bold text-lg">OD Contractors</span>
-              <span className="text-muted-foreground text-xs block -mt-1">Building Excellence</span>
-            </div>
+          <Link to="/" className="flex items-center">
+            <span className="text-foreground font-bold text-xl md:text-2xl">
+              OD Contractors
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
