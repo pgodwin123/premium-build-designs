@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import PageCTA from "@/components/shared/PageCTA";
 import extensionImg from "@/assets/project-extension.jpg";
 import loftImg from "@/assets/project-loft.jpg";
 import newbuildImg from "@/assets/project-newbuild.jpg";
@@ -10,6 +8,7 @@ import kitchenImg from "@/assets/project-kitchen.jpg";
 import garageImg from "@/assets/project-garage.jpg";
 import heroImg from "@/assets/hero-construction.jpg";
 
+// [PLACEHOLDER] Update categories
 const categories = [
   "All",
   "Extensions",
@@ -20,6 +19,7 @@ const categories = [
   "Garage Conversions",
 ];
 
+// [PLACEHOLDER] Update projects list
 const projects = [
   {
     id: 1,
@@ -97,7 +97,7 @@ export default function GalleryPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -106,6 +106,7 @@ export default function GalleryPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Project Gallery
             </h1>
+            {/* [PLACEHOLDER] Update page description */}
             <p className="text-lg md:text-xl text-muted-foreground">
               Browse our portfolio of completed projects. Each one represents our commitment 
               to quality, craftsmanship, and customer satisfaction.
@@ -115,14 +116,14 @@ export default function GalleryPage() {
       </section>
 
       {/* Filter */}
-      <section className="py-8 border-b border-border/50 sticky top-16 md:top-20 bg-background/95 backdrop-blur-lg z-40">
+      <section className="py-8 border-b border-border sticky top-16 md:top-20 bg-background z-40">
         <div className="container-custom">
           <div className="flex gap-2 overflow-x-auto pb-2 -mb-2 scrollbar-hide">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                   activeCategory === category
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-muted-foreground hover:text-foreground"
@@ -142,21 +143,20 @@ export default function GalleryPage() {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group relative overflow-hidden rounded-2xl bg-card border border-border/50 card-hover"
+                className="group relative overflow-hidden rounded-2xl bg-card border border-border"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium mb-2">
+                <div className="p-6">
+                  <span className="text-primary text-xs font-medium uppercase tracking-wider">
                     {project.category}
                   </span>
-                  <h3 className="text-lg font-bold text-foreground mb-1">
+                  <h3 className="text-lg font-bold text-foreground mt-1 mb-1">
                     {project.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">{project.location}</p>
@@ -176,22 +176,10 @@ export default function GalleryPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Like What You See?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Let us bring your vision to life. Contact us for a free quote on your project.
-          </p>
-          <Button asChild size="lg" className="amber-gradient hover:opacity-90">
-            <Link to="/contact">
-              Get a Free Quote
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
-        </div>
-      </section>
+      <PageCTA 
+        title="Like What You See?"
+        description="Let us bring your vision to life. Contact us for a free quote on your project."
+      />
     </div>
   );
 }

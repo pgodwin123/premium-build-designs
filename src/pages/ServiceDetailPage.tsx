@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowRight, Check, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PageCTA from "@/components/shared/PageCTA";
 import extensionImg from "@/assets/project-extension.jpg";
 import loftImg from "@/assets/project-loft.jpg";
 import newbuildImg from "@/assets/project-newbuild.jpg";
@@ -9,6 +10,11 @@ import kitchenImg from "@/assets/project-kitchen.jpg";
 import garageImg from "@/assets/project-garage.jpg";
 import heroImg from "@/assets/hero-construction.jpg";
 
+// [PLACEHOLDER] Update phone number
+const PHONE_NUMBER = "07882 075524";
+const PHONE_HREF = "tel:07882075524";
+
+// [PLACEHOLDER] Update services data
 const servicesData: Record<string, {
   title: string;
   subtitle: string;
@@ -203,7 +209,7 @@ export default function ServiceDetailPage() {
             alt={service.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+          <div className="absolute inset-0 bg-background/70" />
         </div>
         <div className="container-custom relative z-10 pb-12 md:pb-16">
           <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -230,7 +236,7 @@ export default function ServiceDetailPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
                 {service.features.map((feature) => (
                   <div key={feature} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-4 h-4 text-primary" />
                     </div>
                     <span className="text-foreground">{feature}</span>
@@ -244,7 +250,7 @@ export default function ServiceDetailPage() {
               <div className="space-y-4">
                 {service.process.map((step, index) => (
                   <div key={step} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                       <span className="text-primary font-bold">{index + 1}</span>
                     </div>
                     <span className="text-foreground">{step}</span>
@@ -255,7 +261,7 @@ export default function ServiceDetailPage() {
 
             {/* Sidebar CTA */}
             <div className="lg:col-span-1">
-              <div className="sticky top-28 bg-card rounded-2xl border border-border/50 p-8">
+              <div className="sticky top-28 bg-card rounded-2xl border border-border p-8">
                 <h3 className="text-xl font-bold text-foreground mb-4">
                   Get a Free Quote
                 </h3>
@@ -264,16 +270,16 @@ export default function ServiceDetailPage() {
                   Contact us for a free, no-obligation quote.
                 </p>
                 <div className="space-y-4">
-                  <Button asChild className="w-full amber-gradient hover:opacity-90">
+                  <Button asChild className="w-full amber-gradient">
                     <Link to="/contact">
                       Request Quote
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="w-full">
-                    <a href="tel:01234567890">
+                    <a href={PHONE_HREF}>
                       <Phone className="mr-2 w-4 h-4" />
-                      01234 567890
+                      {PHONE_NUMBER}
                     </a>
                   </Button>
                 </div>
@@ -284,7 +290,7 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* Gallery */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding bg-secondary">
         <div className="container-custom">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             Project Gallery
@@ -304,22 +310,10 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Get in touch today for a free consultation and quote.
-          </p>
-          <Button asChild size="lg" className="amber-gradient hover:opacity-90">
-            <Link to="/contact">
-              Get a Free Quote
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
-        </div>
-      </section>
+      <PageCTA 
+        title="Ready to Start Your Project?"
+        description="Get in touch today for a free consultation and quote."
+      />
     </div>
   );
 }
