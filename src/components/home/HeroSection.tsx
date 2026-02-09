@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-construction.jpg";
+import heroImage from "@/assets/hero-extension.jpg";
 
 // [PLACEHOLDER] Update phone number
 const PHONE_NUMBER = "07882 075524";
@@ -17,7 +17,7 @@ export default function HeroSection() {
           alt="Construction site"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
