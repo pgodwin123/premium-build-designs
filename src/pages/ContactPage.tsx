@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
+// [PLACEHOLDER] Update service areas
 const serviceAreas = [
   "London",
   "Surrey",
@@ -15,6 +16,7 @@ const serviceAreas = [
   "Berkshire",
 ];
 
+// [PLACEHOLDER] Update project types
 const projectTypes = [
   "Extension",
   "Loft Conversion",
@@ -25,6 +27,12 @@ const projectTypes = [
   "Garage Conversion",
   "Other",
 ];
+
+// [PLACEHOLDER] Update contact details
+const PHONE_NUMBER = "07882 075524";
+const PHONE_HREF = "tel:07882075524";
+const EMAIL = "info@odcontractors.co.uk";
+const WHATSAPP_HREF = "https://wa.me/447882075524";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -68,7 +76,7 @@ export default function ContactPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -77,6 +85,7 @@ export default function ContactPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Request a Free Quote
             </h1>
+            {/* [PLACEHOLDER] Update page description */}
             <p className="text-lg md:text-xl text-muted-foreground">
               Ready to start your project? Fill out the form below and we'll get back to you 
               within 24 hours with a free, no-obligation quote.
@@ -89,12 +98,16 @@ export default function ContactPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Form */}
+            {/* Form - Main Focus */}
             <div className="lg:col-span-2">
-              <div className="bg-card rounded-2xl border border-border/50 p-8 md:p-10">
-                <h2 className="text-2xl font-bold text-foreground mb-6">
+              <div className="bg-card rounded-2xl border border-border p-8 md:p-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                   Tell Us About Your Project
                 </h2>
+                <p className="text-muted-foreground mb-8">
+                  {/* [PLACEHOLDER] Update form intro */}
+                  Fill in the details below and we'll get back to you with a quote.
+                </p>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -108,7 +121,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="John Smith"
                         required
-                        className="h-12"
+                        className="h-14 text-base"
                       />
                     </div>
                     <div>
@@ -122,7 +135,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="07123 456789"
                         required
-                        className="h-12"
+                        className="h-14 text-base"
                       />
                     </div>
                   </div>
@@ -139,7 +152,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="john@example.com"
                         required
-                        className="h-12"
+                        className="h-14 text-base"
                       />
                     </div>
                     <div>
@@ -152,7 +165,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="SE1 1AA"
                         required
-                        className="h-12"
+                        className="h-14 text-base"
                       />
                     </div>
                   </div>
@@ -166,7 +179,7 @@ export default function ContactPage() {
                       onValueChange={(value) => setFormData({ ...formData, projectType: value })}
                       required
                     >
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger className="h-14 text-base">
                         <SelectValue placeholder="Select project type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -188,15 +201,20 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your project, what you're looking to achieve, any specific requirements..."
-                      rows={5}
-                      className="resize-none"
+                      rows={6}
+                      className="resize-none text-base"
                     />
                   </div>
+
+                  {/* Response time notice */}
+                  <p className="text-center text-muted-foreground text-sm">
+                    We respond within 24 hours
+                  </p>
 
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full amber-gradient hover:opacity-90 h-14 text-base"
+                    className="w-full amber-gradient h-16 text-lg font-semibold"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -215,48 +233,48 @@ export default function ContactPage() {
             {/* Contact Info Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               {/* Quick Contact */}
-              <div className="bg-card rounded-2xl border border-border/50 p-8">
+              <div className="bg-card rounded-2xl border border-border p-8">
                 <h3 className="text-xl font-bold text-foreground mb-6">
                   Quick Contact
                 </h3>
                 <div className="space-y-6">
                   <a
-                    href="tel:01234567890"
+                    href={PHONE_HREF}
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
                         Call Us
                       </div>
-                      <div className="text-muted-foreground">01234 567890</div>
+                      <div className="text-muted-foreground">{PHONE_NUMBER}</div>
                     </div>
                   </a>
 
                   <a
-                    href="mailto:info@odcontractors.co.uk"
+                    href={`mailto:${EMAIL}`}
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                       <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
                         Email Us
                       </div>
-                      <div className="text-muted-foreground text-sm">info@odcontractors.co.uk</div>
+                      <div className="text-muted-foreground text-sm">{EMAIL}</div>
                     </div>
                   </a>
 
                   <a
-                    href="https://wa.me/447123456789"
+                    href={WHATSAPP_HREF}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366]/20 transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                       <MessageCircle className="w-5 h-5 text-[#25D366]" />
                     </div>
                     <div>
@@ -268,11 +286,12 @@ export default function ContactPage() {
                   </a>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                       <Clock className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Opening Hours</div>
+                      {/* [PLACEHOLDER] Update opening hours */}
                       <div className="text-muted-foreground text-sm">
                         Mon-Fri: 8am - 6pm<br />
                         Sat: 9am - 2pm
@@ -283,16 +302,17 @@ export default function ContactPage() {
               </div>
 
               {/* Service Areas */}
-              <div className="bg-card rounded-2xl border border-border/50 p-8">
+              <div className="bg-card rounded-2xl border border-border p-8">
                 <h3 className="text-xl font-bold text-foreground mb-6">
                   Service Areas
                 </h3>
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">We Cover</div>
+                    {/* [PLACEHOLDER] Update coverage area */}
                     <div className="text-muted-foreground text-sm">London & the South East</div>
                   </div>
                 </div>
@@ -300,7 +320,7 @@ export default function ContactPage() {
                   {serviceAreas.map((area) => (
                     <span
                       key={area}
-                      className="px-3 py-1 rounded-full bg-secondary text-sm text-muted-foreground"
+                      className="px-3 py-1 rounded-lg bg-secondary text-sm text-muted-foreground"
                     >
                       {area}
                     </span>

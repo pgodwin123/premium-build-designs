@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// [PLACEHOLDER] Update services list
 const services = [
   { name: "Extensions", href: "/services/extensions" },
   { name: "Loft Conversions", href: "/services/loft-conversions" },
@@ -11,6 +12,7 @@ const services = [
   { name: "Garage Conversions", href: "/services/garage-conversions" },
 ];
 
+// [PLACEHOLDER] Update service areas
 const serviceAreas = [
   "London",
   "Surrey",
@@ -20,36 +22,19 @@ const serviceAreas = [
   "Berkshire",
 ];
 
+// [PLACEHOLDER] Update contact details
+const PHONE_NUMBER = "07882 075524";
+const PHONE_HREF = "tel:07882075524";
+const EMAIL = "info@odcontractors.co.uk";
+const ADDRESS = "123 Builder Street\nLondon, SE1 1AA";
+
 export default function Footer() {
   return (
-    <footer className="bg-secondary/30 border-t border-border/50">
-      {/* CTA Banner */}
-      <div className="container-custom py-12 md:py-16">
-        <div className="bg-card rounded-2xl p-8 md:p-12 text-center border border-border/50">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Get a free, no-obligation quote today. We'll discuss your vision and provide expert advice.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="amber-gradient hover:opacity-90 text-base">
-              <Link to="/contact">Get a Free Quote</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="text-base">
-              <a href="tel:01234567890">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Us Now
-              </a>
-            </Button>
-          </div>
-        </div>
-      </div>
-
+    <footer className="bg-card border-t border-border">
       {/* Main Footer */}
-      <div className="container-custom py-12 md:py-16 border-t border-border/50">
+      <div className="container-custom py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          {/* Company Info */}
+          {/* Company Info - [PLACEHOLDER] Update company details */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-5">
               <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
@@ -61,27 +46,29 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
+              {/* [PLACEHOLDER] Update company description */}
               Professional building and renovation services with over 25 years of experience. 
               Quality craftsmanship, on time and on budget.
             </p>
+            {/* [PLACEHOLDER] Update social media links */}
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -127,24 +114,24 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:01234567890"
+                  href={PHONE_HREF}
                   className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-3"
                 >
                   <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
                     <Phone className="w-4 h-4" />
                   </div>
-                  01234 567890
+                  {PHONE_NUMBER}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@odcontractors.co.uk"
+                  href={`mailto:${EMAIL}`}
                   className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-3"
                 >
                   <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
                     <Mail className="w-4 h-4" />
                   </div>
-                  info@odcontractors.co.uk
+                  {EMAIL}
                 </a>
               </li>
               <li>
@@ -152,7 +139,7 @@ export default function Footer() {
                   <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <span>123 Builder Street<br />London, SE1 1AA</span>
+                  <span className="whitespace-pre-line">{ADDRESS}</span>
                 </div>
               </li>
             </ul>
@@ -161,8 +148,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="container-custom py-6 border-t border-border/50">
+      <div className="container-custom py-6 border-t border-border">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          {/* [PLACEHOLDER] Update company name */}
           <p>© {new Date().getFullYear()} OD Contractors Ltd. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-foreground transition-colors">

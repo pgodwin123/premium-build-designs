@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// [PLACEHOLDER] Update navigation links as needed
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
@@ -10,6 +11,10 @@ const navigation = [
   { name: "Reviews", href: "/reviews" },
   { name: "Contact", href: "/contact" },
 ];
+
+// [PLACEHOLDER] Update phone number
+const PHONE_NUMBER = "07882 075524";
+const PHONE_HREF = "tel:07882075524";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,15 +35,15 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-lg"
+          ? "bg-background border-b border-border"
           : "bg-transparent"
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo - [PLACEHOLDER] Update company name */}
           <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">OD</span>
@@ -69,35 +74,47 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:01onal234567890"
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              href={PHONE_HREF}
+              className="flex items-center gap-2 text-sm text-foreground font-medium hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>01onal234 567890</span>
+              <span>{PHONE_NUMBER}</span>
             </a>
-            <Button asChild className="amber-gradient hover:opacity-90">
+            <Button asChild className="amber-gradient">
               <Link to="/contact">Get a Free Quote</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile: Phone + Quote + Menu */}
+          <div className="lg:hidden flex items-center gap-2">
+            <a
+              href={PHONE_HREF}
+              className="flex items-center justify-center w-10 h-10 rounded-lg bg-secondary text-foreground"
+              aria-label="Call us"
+            >
+              <Phone className="w-5 h-5" />
+            </a>
+            <Button asChild size="sm" className="amber-gradient hidden sm:inline-flex">
+              <Link to="/contact">Quote</Link>
+            </Button>
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${
+        className={`lg:hidden transition-all duration-200 overflow-hidden ${
           isMobileMenuOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
-        <div className="bg-background/98 backdrop-blur-xl border-t border-border/50 px-4 py-6 space-y-4">
+        <div className="bg-background border-t border-border px-4 py-6 space-y-4">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -111,15 +128,15 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
-          <div className="pt-4 border-t border-border/50 space-y-3">
+          <div className="pt-4 border-t border-border space-y-3">
             <a
-              href="tel:01234567890"
+              href={PHONE_HREF}
               className="flex items-center justify-center gap-2 py-3 text-foreground font-medium"
             >
               <Phone className="w-5 h-5" />
-              <span>01234 567890</span>
+              <span>{PHONE_NUMBER}</span>
             </a>
-            <Button asChild className="w-full amber-gradient hover:opacity-90">
+            <Button asChild className="w-full amber-gradient">
               <Link to="/contact">Get a Free Quote</Link>
             </Button>
           </div>

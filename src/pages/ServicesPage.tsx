@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Building2, Home, Hammer, Bath, Warehouse, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PageCTA from "@/components/shared/PageCTA";
 import extensionImg from "@/assets/project-extension.jpg";
 import loftImg from "@/assets/project-loft.jpg";
 import newbuildImg from "@/assets/project-newbuild.jpg";
@@ -8,6 +9,7 @@ import renovationImg from "@/assets/project-renovation.jpg";
 import kitchenImg from "@/assets/project-kitchen.jpg";
 import garageImg from "@/assets/project-garage.jpg";
 
+// [PLACEHOLDER] Update services list
 const services = [
   {
     slug: "extensions",
@@ -57,7 +59,7 @@ export default function ServicesPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -66,6 +68,7 @@ export default function ServicesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Building Solutions for Every Need
             </h1>
+            {/* [PLACEHOLDER] Update page description */}
             <p className="text-lg md:text-xl text-muted-foreground">
               From home extensions to complete new builds, we provide comprehensive building 
               and renovation services with a focus on quality craftsmanship and customer satisfaction.
@@ -93,13 +96,12 @@ export default function ServicesPage() {
                       alt={service.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center mb-6">
                     <service.icon className="w-7 h-7 text-primary" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -122,22 +124,10 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Contact us today for a free consultation and quote on your project.
-          </p>
-          <Button asChild size="lg" className="amber-gradient hover:opacity-90">
-            <Link to="/contact">
-              Get a Free Quote
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
-        </div>
-      </section>
+      <PageCTA 
+        title="Ready to Get Started?"
+        description="Contact us today for a free consultation and quote on your project."
+      />
     </div>
   );
 }

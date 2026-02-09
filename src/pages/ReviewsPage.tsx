@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { Star, ArrowRight, Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Star, Quote } from "lucide-react";
+import PageCTA from "@/components/shared/PageCTA";
 
+// [PLACEHOLDER] Update reviews list
 const reviews = [
   {
     id: 1,
@@ -83,7 +83,7 @@ export default function ReviewsPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -92,6 +92,7 @@ export default function ReviewsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               What Our Clients Say
             </h1>
+            {/* [PLACEHOLDER] Update page description */}
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               Don't just take our word for it — hear from homeowners who've trusted us 
               with their building projects.
@@ -122,10 +123,10 @@ export default function ReviewsPage() {
             {reviews.map((review) => (
               <div
                 key={review.id}
-                className="bg-card rounded-2xl border border-border/50 p-8 card-hover"
+                className="bg-card rounded-2xl border border-border p-8"
               >
                 {/* Quote Icon */}
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-6">
                   <Quote className="w-5 h-5 text-primary" />
                 </div>
 
@@ -142,7 +143,7 @@ export default function ReviewsPage() {
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center justify-between pt-6 border-t border-border/50">
+                <div className="flex items-center justify-between pt-6 border-t border-border">
                   <div>
                     <div className="font-semibold text-foreground">{review.name}</div>
                     <div className="text-sm text-muted-foreground">
@@ -158,22 +159,10 @@ export default function ReviewsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Ready to Join Our Happy Clients?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Get in touch today for a free consultation and quote on your project.
-          </p>
-          <Button asChild size="lg" className="amber-gradient hover:opacity-90">
-            <Link to="/contact">
-              Get a Free Quote
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
-        </div>
-      </section>
+      <PageCTA 
+        title="Ready to Join Our Happy Clients?"
+        description="Get in touch today for a free consultation and quote on your project."
+      />
     </div>
   );
 }

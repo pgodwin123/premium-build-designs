@@ -6,89 +6,83 @@
 
 @layer base {
   :root {
-    /* Dark premium background palette */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* Lighter dark theme - #111111 background, #1C1C1C cards, #F5F5F5 text */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 96%;
 
     /* Amber/Orange accent - primary brand color */
     --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 4%;
+    --primary-foreground: 0 0% 7%;
 
     /* Slightly lighter dark for secondary surfaces */
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 96%;
 
     /* Muted tones for less emphasis */
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 64%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
 
     /* Accent matches primary for consistency */
     --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 4%;
+    --accent-foreground: 0 0% 7%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 96%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 38 92% 50%;
 
     --radius: 0.5rem;
 
     /* Custom tokens for contractor theme */
-    --surface-elevated: 0 0% 12%;
-    --surface-overlay: 0 0% 8%;
-    --amber-glow: 38 92% 50%;
-    --amber-hover: 38 92% 45%;
-    --amber-muted: 38 40% 25%;
-    --text-primary: 0 0% 98%;
-    --text-secondary: 0 0% 70%;
-    --text-tertiary: 0 0% 50%;
+    --surface-elevated: 0 0% 13%;
+    --surface-overlay: 0 0% 9%;
 
     /* Sidebar (dark variant) */
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 98%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 96%;
     --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 18%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 20%;
     --sidebar-ring: 38 92% 50%;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 96%;
     --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 64%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
     --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 4%;
+    --accent-foreground: 0 0% 7%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
+    --destructive-foreground: 0 0% 96%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 38 92% 50%;
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 98%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 96%;
     --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 18%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 20%;
     --sidebar-ring: 38 92% 50%;
   }
 }
@@ -114,35 +108,23 @@
 }
 
 @layer components {
-  /* Glass effect for elevated surfaces */
+  /* Solid card background */
   .glass-card {
-    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+    @apply bg-card border border-border;
   }
 
-  /* Gradient text for headings */
-  .gradient-text {
-    @apply bg-gradient-to-r from-white via-white to-muted-foreground bg-clip-text text-transparent;
-  }
-
-  /* Amber gradient for CTAs */
+  /* Amber solid background for CTAs */
   .amber-gradient {
-    background: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(32 90% 45%) 100%);
+    @apply bg-primary hover:bg-primary/90;
   }
 
-  /* Glow effect for hover states */
-  .amber-glow {
-    box-shadow: 0 0 30px -5px hsl(38 92% 50% / 0.4);
-  }
-
-  /* Subtle card hover effect */
+  /* Subtle card hover effect - simplified */
   .card-hover {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-colors duration-200;
   }
 
   .card-hover:hover {
-    @apply border-primary/30;
-    box-shadow: 0 20px 40px -15px hsl(0 0% 0% / 0.5);
-    transform: translateY(-4px);
+    @apply border-primary/40;
   }
 
   /* Section spacing */
@@ -155,73 +137,11 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Animated underline for links */
-  .link-underline {
-    @apply relative;
-  }
-
-  .link-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
-  }
-
-  .link-underline:hover::after {
-    @apply w-full;
-  }
-
   /* Trust badge styling */
   .trust-badge {
-    @apply flex items-center gap-3 p-4 rounded-xl bg-secondary/50 border border-border/50;
+    @apply flex items-center gap-3 p-4 rounded-lg bg-secondary border border-border;
   }
 
-  /* Floating animation */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-
-  /* Pulse glow for CTAs */
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px -5px hsl(38 92% 50% / 0.4); }
-    50% { box-shadow: 0 0 30px -5px hsl(38 92% 50% / 0.6); }
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  /* Fade in animation */
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-  }
-
-  /* Stagger children animations */
-  .stagger-children > * {
-    opacity: 0;
-    animation: fade-in-up 0.5s ease-out forwards;
-  }
-
-  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
-  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
-  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
-  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
-  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
-  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
 }
 
 @layer utilities {
