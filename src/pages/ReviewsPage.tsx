@@ -116,37 +116,37 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      {/* Reviews Grid */}
+      {/* Single Column Reviews with Amber Border */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-3xl mx-auto space-y-8">
             {reviews.map((review) => (
               <div
                 key={review.id}
-                className="bg-card rounded-2xl border border-border p-8"
+                className="bg-card rounded-2xl border border-border p-8 md:p-10 border-l-4 border-l-primary"
               >
                 {/* Quote Icon */}
-                <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-6">
-                  <Quote className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6">
+                  <Quote className="w-6 h-6 text-primary" />
                 </div>
 
                 {/* Stars */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-6">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   ))}
                 </div>
 
                 {/* Text */}
-                <p className="text-foreground leading-relaxed mb-6">
+                <p className="text-foreground text-lg md:text-xl leading-relaxed mb-8">
                   "{review.text}"
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center justify-between pt-6 border-t border-border">
                   <div>
-                    <div className="font-semibold text-foreground">{review.name}</div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="font-semibold text-foreground text-lg">{review.name}</div>
+                    <div className="text-muted-foreground">
                       {review.location} — {review.project}
                     </div>
                   </div>

@@ -7,6 +7,7 @@ import renovationImg from "@/assets/project-renovation.jpg";
 import kitchenImg from "@/assets/project-kitchen.jpg";
 import garageImg from "@/assets/project-garage.jpg";
 import heroImg from "@/assets/hero-construction.jpg";
+import heroExtImg from "@/assets/hero-extension.jpg";
 
 // [PLACEHOLDER] Update categories
 const categories = [
@@ -19,7 +20,7 @@ const categories = [
   "Garage Conversions",
 ];
 
-// [PLACEHOLDER] Update projects list
+// [PLACEHOLDER] Update projects list - heights create masonry effect
 const projects = [
   {
     id: 1,
@@ -27,6 +28,7 @@ const projects = [
     category: "Extensions",
     location: "Surrey",
     image: extensionImg,
+    tall: false,
   },
   {
     id: 2,
@@ -34,6 +36,7 @@ const projects = [
     category: "Loft Conversions",
     location: "London",
     image: loftImg,
+    tall: true,
   },
   {
     id: 3,
@@ -41,6 +44,7 @@ const projects = [
     category: "New Builds",
     location: "Essex",
     image: newbuildImg,
+    tall: false,
   },
   {
     id: 4,
@@ -48,6 +52,7 @@ const projects = [
     category: "Renovations",
     location: "Kent",
     image: renovationImg,
+    tall: true,
   },
   {
     id: 5,
@@ -55,6 +60,7 @@ const projects = [
     category: "Kitchens",
     location: "Hertfordshire",
     image: kitchenImg,
+    tall: false,
   },
   {
     id: 6,
@@ -62,6 +68,7 @@ const projects = [
     category: "Garage Conversions",
     location: "Berkshire",
     image: garageImg,
+    tall: false,
   },
   {
     id: 7,
@@ -69,6 +76,7 @@ const projects = [
     category: "Extensions",
     location: "London",
     image: heroImg,
+    tall: true,
   },
   {
     id: 8,
@@ -76,6 +84,7 @@ const projects = [
     category: "Loft Conversions",
     location: "Surrey",
     image: loftImg,
+    tall: false,
   },
   {
     id: 9,
@@ -83,6 +92,31 @@ const projects = [
     category: "Renovations",
     location: "Kent",
     image: renovationImg,
+    tall: false,
+  },
+  {
+    id: 10,
+    title: "Wraparound Extension",
+    category: "Extensions",
+    location: "Essex",
+    image: heroExtImg,
+    tall: true,
+  },
+  {
+    id: 11,
+    title: "Bespoke Kitchen Design",
+    category: "Kitchens",
+    location: "London",
+    image: kitchenImg,
+    tall: false,
+  },
+  {
+    id: 12,
+    title: "Detached New Build Home",
+    category: "New Builds",
+    location: "Surrey",
+    image: newbuildImg,
+    tall: true,
   },
 ];
 
@@ -136,30 +170,34 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Masonry Gallery */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group relative overflow-hidden rounded-2xl bg-card border border-border"
+                className="break-inside-avoid group relative overflow-hidden rounded-2xl bg-card"
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className={`overflow-hidden ${project.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
-                  <span className="text-primary text-xs font-medium uppercase tracking-wider">
-                    {project.category}
-                  </span>
-                  <h3 className="text-lg font-bold text-foreground mt-1 mb-1">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{project.location}</p>
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div>
+                    <span className="text-primary text-xs font-medium uppercase tracking-wider block mb-1">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl font-bold text-foreground mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{project.location}</p>
+                  </div>
                 </div>
               </div>
             ))}

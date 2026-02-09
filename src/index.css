@@ -6,83 +6,84 @@
 
 @layer base {
   :root {
-    /* Lighter dark theme - #111111 background, #1C1C1C cards, #F5F5F5 text */
-    --background: 0 0% 7%;
+    /* Dark theme: #0A0A0A background, #111111 cards, #F5F5F5 text, #F59E0B amber accent */
+    --background: 0 0% 4%;
     --foreground: 0 0% 96%;
 
-    --card: 0 0% 11%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 11%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 96%;
 
-    /* Amber/Orange accent - primary brand color */
+    /* Amber/Gold accent - #F59E0B */
     --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 7%;
+    --primary-foreground: 0 0% 4%;
 
     /* Slightly lighter dark for secondary surfaces */
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 96%;
 
-    /* Muted tones for less emphasis */
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
+    /* Muted tones - #A1A1AA for muted text */
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 4% 66%;
 
-    /* Accent matches primary for consistency */
+    /* Accent matches primary */
     --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 7%;
+    --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 96%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
+    /* Border - #1F1F1F */
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
     --ring: 38 92% 50%;
 
     --radius: 0.5rem;
 
-    /* Custom tokens for contractor theme */
-    --surface-elevated: 0 0% 13%;
-    --surface-overlay: 0 0% 9%;
+    /* Custom tokens */
+    --surface-elevated: 0 0% 9%;
+    --surface-overlay: 0 0% 6%;
 
-    /* Sidebar (dark variant) */
-    --sidebar-background: 0 0% 8%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 96%;
     --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 0 0% 7%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 20%;
+    --sidebar-border: 0 0% 12%;
     --sidebar-ring: 38 92% 50%;
   }
 
   .dark {
-    --background: 0 0% 7%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 96%;
-    --card: 0 0% 11%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 96%;
-    --popover: 0 0% 11%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 96%;
     --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 7%;
-    --secondary: 0 0% 15%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 96%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 4% 66%;
     --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 7%;
+    --accent-foreground: 0 0% 4%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 96%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
     --ring: 38 92% 50%;
-    --sidebar-background: 0 0% 8%;
+    --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 96%;
     --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 0 0% 7%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 20%;
+    --sidebar-border: 0 0% 12%;
     --sidebar-ring: 38 92% 50%;
   }
 }
