@@ -57,33 +57,70 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom contractor theme colors
+        surface: {
+          elevated: "hsl(var(--surface-elevated))",
+          overlay: "hsl(var(--surface-overlay))",
+        },
+        amber: {
+          glow: "hsl(var(--amber-glow))",
+          hover: "hsl(var(--amber-hover))",
+          muted: "hsl(var(--amber-muted))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Inter", "system-ui", "sans-serif"],
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-down": {
+          from: { opacity: "0", transform: "translateY(-10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        shimmer: {
+          "100%": { transform: "translateX(100%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out",
+        "slide-up": "slide-up 0.5s ease-out",
+        "slide-down": "slide-down 0.3s ease-out",
+        shimmer: "shimmer 2s infinite",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "hero-gradient": "linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 4%) 100%)",
+        "amber-gradient": "linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(32 90% 45%) 100%)",
+        "card-gradient": "linear-gradient(180deg, hsl(0 0% 12%) 0%, hsl(0 0% 10%) 100%)",
+      },
+      boxShadow: {
+        "glow-sm": "0 0 15px -3px hsl(38 92% 50% / 0.3)",
+        "glow-md": "0 0 25px -5px hsl(38 92% 50% / 0.4)",
+        "glow-lg": "0 0 35px -5px hsl(38 92% 50% / 0.5)",
+        "card-hover": "0 20px 40px -15px hsl(0 0% 0% / 0.5)",
       },
     },
   },
