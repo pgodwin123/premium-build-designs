@@ -24,11 +24,6 @@ export default function HeroSection() {
       {/* Content */}
       <div className="container-custom relative z-10 pt-20">
         <div className="max-w-3xl">
-          {/* [PLACEHOLDER] Update tagline */}
-          <p className="text-[#F59E0B] font-medium text-sm tracking-wider uppercase mb-4">
-            Over 25 Years of Excellence
-          </p>
-
           {/* [PLACEHOLDER] Update headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
             Building Dreams,
@@ -36,7 +31,7 @@ export default function HeroSection() {
           </h1>
 
           {/* [PLACEHOLDER] Update description */}
-          <p className="text-lg md:text-xl text-[#D1D5DB] max-w-xl mb-8">
+          <p className="text-lg md:text-xl text-[#E5E7EB] max-w-xl mb-8">
             Professional building and renovation services across London and the South East. 
             Quality craftsmanship, delivered on time and on budget.
           </p>
